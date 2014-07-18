@@ -7,6 +7,7 @@ menu-id: l1-other
 <p>
 OMERO has a text-based search feature which allows you to search for data by name or other text associated with the data.
 Other fields include description or annotations on the data such as Tags, Comments and Text-based File attachments.
+More details on keyword searching are discussed after the walk-through steps below.
 </p>
 
 <p>The search functionality is identical in both the OMERO.insight and OMERO.web clients. The following steps can be applied to either client.</p>
@@ -97,6 +98,35 @@ Other fields include description or annotations on the data such as Tags, Commen
         the current date.
     </p>
 </li>
+
+
+<h2>Keyword searching</h2>
+
+<p>
+    When OMERO adds data to it's search index, it processes the text and looks for keywords or 'tokens' to index.
+    In general it does this by splitting text by any character that is not a letter or number.
+    For example, an image name such as <span class="code-example">AuroraB-siRNAi_control_01.tiff</span>
+    will be split into 5 tokens: <span class="code-example">AuroraB, siRNAi,
+    control, 01, tiff</span>. This image will be returned by a search for any of those tokens, but will be ranked higher
+    in the search results if multiple tokens are matched.
+</p>
+<p>
+    For example, searching for: <span class="code-example">siRNAi AuroraB</span>,
+    will find any images that have tokens of siRNAi OR AuroraB,
+    but images that contain both these keywords will be returned ahead of other results. Searching for
+    <span class="code-example">siRNAi AND AuroraB</span> will only match images that have both tokens.
+</p>
+<p>
+    Search queries themselves are indexed as part of the search. Therefore, you expect to
+    get the same results for all these searches:
+    <ul>
+        <li><span class="code-example">AuroraB_siRNAi</span></li>
+        <li><span class="code-example">AuroraB-siRNAi</span></li>
+        <li><span class="code-example">AuroraB siRNAi</span></li>
+        <li><span class="code-example">siRNAi AuroraB</span></li>
+        <li><span class="code-example">siRNAi-AuroraB</span></li>
+    </ul>
+</p>
 
 
 
