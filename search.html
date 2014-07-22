@@ -127,6 +127,26 @@ More details on keyword searching are discussed after the walk-through steps bel
         <li><span class="code-example">siRNAi-AuroraB</span></li>
     </ul>
 </p>
+<p>
+    You can also use <span class="bold">Quotes</span> to narrow down your search query, nevertheless, possibly slightly surprisingly, the keywords between the quotation signs will not be taken as intact. Instead, the looking for tokens as described in previous paragraph will also apply even for quoted search. This means, you will get the same results for all these searches:
+	<ul>
+        <li><span class="code-example">"AuroraB_siRNAi"</span></li>
+        <li><span class="code-example">"AuroraB-siRNAi"</span></li>
+        <li><span class="code-example">"AuroraB siRNAi"</span></li>
+    </ul>
+</p>
+<p>
+Still, the order of the tokens inside the <span class="bold">Quotes</span> matters, as well as the presence or absence of any additianal alphanumeric characters between the quotes and the presence or absence of all the keywords. This means that <span class="code-example">AuroraB_siRNAi</span> will NOT be found by any of the following searches:
+
+	<ul>
+    	<li><span class="code-example">"siRNAi_AuroraB"</span></li>
+    	<li><span class="code-example">"AuroraB-GFP-siRNAi"</span></li>
+    	<li><span class="code-example">"AuroraB"</span></li>
+	</ul>
+</p>
+
+
+
 
 
 
